@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    	body{
+    		margin-top: 100px;
+    		text-align: center;
+    	}
+    </style>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <script>
+		var app = new PIXI.Application(1200,600);
+        document.body.appendChild(app.view);
+        
+        var bg = new PIXI.Sprite.fromImage("res/boatbg.jpg");
+        bg.anchor.set(0.5,0.5);
+        bg.x = 600;
+        bg.y = 300;
+        bg.width = 1400;
+        bg.height = 700
+        app.stage.addChild(bg);
+        
+//      var juanzhou = new PIXI.Sprite.fromImage("res/juanzhou.png");
+//      juanzhou.anchor.set(0.5,0.5);
+//      juanzhou.x = 600;
+//      juanzhou.y = 300;
+//      juanzhou.width = 1000;
+//      juanzhou.height = 600;
+//      app.stage.addChild(juanzhou);
+
+
+		var mid = new PIXI.Sprite.fromImage("res/mid.png");
+		mid.anchor.set(0.5,0.5);
+		mid.x = 600;
+		mid.y = 300;
+		mid.width = 10;
+        mid.height = 600;
+        app.stage.addChild(mid);
+        
+		var left = new PIXI.Sprite.fromImage("res/left.png");
+		left.anchor.set(0.5,0.5);
+		left.x = 100;
+		left.y = 245;
+		left.width = 1000;
+        left.height = 600;
+        app.stage.addChild(left);
+        
+        var right = new PIXI.Sprite.fromImage("res/right.png");
+		right.anchor.set(0.5,0.5);
+		right.x = 1100;
+		right.y = 237;
+		right.width = 1000;
+        right.height = 600;
+        app.stage.addChild(right);
+        
+
+        
+        var title = new PIXI.Sprite.fromImage("res/title.png");
+        title.anchor.set(0.5,0.5);
+        title.x = 600;
+        title.y = 300;
+        title.width = 1000;
+        title.height = 600;
+        title.alpha = 0;
+        app.stage.addChild(title);
+        
+        var start = new PIXI.Sprite.fromImage("res/start.png");
+        start.anchor.set(0.5,0.5);
+        start.x = 600;
+        start.y = 500;
+        start.width = 250;
+        start.height = 80;
+        app.stage.addChild(start);
+        start.interactive = true;
+        start.buttonMode = true;
+        start.on("click",jump);
+        
+        app.ticker.add(animate);
+        
+        function animate(){
+        	
+        	moveBg();
+        	movejuanzhou();
+        	changeTitle();
+        	
+        }
+        
+        var flag1 = 1;
+        var flag2 = 1;
+        function moveBg(){
+        	bg.rotation += flag1*0.0002;
+          	bg.y += flag2*0.25;
+        	if(bg.rotation >= 0.007)
+        	flag1 = -1;
+        	if(bg.rotation <= -0.007)
+        	flag1 = 1;
+        	if(bg.y > 305){
+        		flag2 = -1;
+        	}
+        	if(bg.y<295){
+        		flag2 = 1;
+        	}
+        }
+        function jump(){
+        	window.location.href = 'hello.html';
+        }
+        var flag = false;
+        function movejuanzhou(){
+        	if(mid.width<1000){
+        		left.x -= 4;
+        		right.x += 4;
+        		mid.width += 20;
+        	}
+        	if(mid.width>1000){
+        		mid.width = 1000;
+        		flag = true;
+        	}
+        	
+       	}
+        function changeTitle(){
+        	if(flag){
+        		title.alpha += 0.01;
+        	}
+        }
+    </script>
+</body>
+</html>
