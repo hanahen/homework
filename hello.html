@@ -2,8 +2,100 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>hello</title>
+		<style type="text/css">
+			body{
+				text-align: center;
+				margin-top: 100px;
+			}
+			.top{
+				margin: 0 auto;
+				width: 1200px;
+				height: 600px;
+				text-align: center;
+				
+				background-image: url(res/hello/bg.png);
+				background-repeat:no-repeat;
+				background-size:cover;
+			}
+			.content{
+				margin: 0 auto;
+				margin-top: 100px;
+				width: 700px;
+				height: 350px;
+				overflow-x: scroll;
+				
+			}
+			.btn{
+				margin-top: 20px;
+			}
+			.line{
+				display:flex;
+      			align-items:center;
+      			flex-direction:row;
+			}
+			
+			  .content::-webkit-scrollbar {
+				  /*滚动条整体样式*/
+				  width : 1px;  /*高宽分别对应横竖滚动条的尺寸*/
+				  height: 5px;
+				  }
+				  .content::-webkit-scrollbar-thumb {
+				  /*滚动条里面小方块*/
+				  border-radius: 10px;
+				  box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+				  background   : #95703c;
+				  }
+				  .content::-webkit-scrollbar-track {
+				  /*滚动条里面轨道*/
+				  box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+				  border-radius: 3px;
+				  background   : #c6b89e;
+			  }
+
+			
+			
+		</style>
 	</head>
 	<body>
+		<div class="top">
+			<br/>
+		<div class="line">
+			<div  id ="msg" align="center" class="content"><img src="res/hello/msg.png" alt width="950px" height="327px" />	</div>
+			<div  id="title" class="title"><img src="res/hello/title.png" alt width="40px" height="163px" /></div>
+		</div>
+		
+		<div id="btn" class="btn"><img src="res/hello/nextBtn.png" alt width="187.5px" height="60px"/></div>
+		</div>
+		<script type="text/javascript" src="js/pixi.min.js" >
+		
+		var title = document.getElementsByClassName(msg);
+		title.alpha = 0;
+		var msg = document.getElementsByClassName(content);
+		msg.alpha = 0;
+		var btn = document.getElementsByClassName(btn);
+		btn.alpha = 0;
+		
+			app.ticker.add(animate);
+		  function animate(){
+		   appear_title();
+		   appear_msg();
+		   appear_Btn();
+		  }
+		  var title = document.getElementsByClassName(title).innerHTML;;
+		  function appear_title(){
+		  	title.innerText = word.substring(0,index++);
+		  	document.getElementsByClassName("title").innerText = title.substring(0,index++);
+		   title.display = 0;
+		  }
+		  function appear_msg(){
+		  	var msg = document.getElementsByClassName(content);
+		   msg.alpha += 0.01;
+		  }
+		  function appear_Btn(){
+		  	var btn = document.getElementsByClassName(btn);
+		   Btn.alpha += 0.003;
+		  }
+		</script>
 	</body>
 </html>
