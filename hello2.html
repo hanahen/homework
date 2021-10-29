@@ -98,7 +98,7 @@
 		app.stage.addChild(left);
 		
 		function moveMsg(event){
-
+			if(msg.lastPos<1000 && msg.lastPos>400){
 			if(flag3 == 1){
 				msg.x += (event.data.global.x - msg.lastPos);
 			}
@@ -111,6 +111,7 @@
 			}
 			msg.lastPos = event.data.global.x;
 			
+		}
 		}
 		
 		
