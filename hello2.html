@@ -23,6 +23,10 @@
 		bg.scale.y=0.3;
 		bg.y=-10;
         app.stage.addChild(bg);
+        bg.interactive = true;
+		bg.on("mousemove", moveMsg);
+		bg.on("click",change);
+		var flag3 = -1;
 		
 		var msg = new PIXI.Sprite.fromImage("res/hello/msg.png");
 		msg.scale.x=0.3;
@@ -32,10 +36,7 @@
 		msg.y=300;
 		msg.alpha = 0;
 		app.stage.addChild(msg);
-		msg.interactive = true;
-		msg.on("mousemove", moveMsg);
-		msg.on("click",change);
-		var flag3 = -1;
+
 		function change(){
 			flag3 *= -1;
 		}
@@ -86,7 +87,7 @@
 		function moveMsg(event){
 			var pos = event.data.getLocalPosition(app.stage);
 			if(flag3 == 1){
-				if(pos.x<=800 && pos.x >= 350)
+				if(pos.x<=800 && pos.x >= 450)
 				msg.x = pos.x;
 			}else{
 				msg.x=450;
