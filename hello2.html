@@ -48,9 +48,6 @@
 		msg.on("touchstart",function(){
 			flag3 = 1;
 		})
-		msg.on("touchend",function(){
-			flag3 = -1;
-		})
 		msg.on("touchmove", moveMsg);
 
 //		function change(){
@@ -102,14 +99,14 @@
 		function moveMsg(event){
 
 			if(flag3 == 1){
-				
-				msg.x += (event.data.global.x - msg.lastPos)
+				msg.x += (event.data.global.x - msg.lastPos);
 			}
 			if(msg.x >800){
 				msg.x = 800;
 			}
-			if(msg.x <450)
-			msg.x = 450;
+			if(msg.x <450){
+				msg.x = 450;
+			}
 			msg.lastPos = event.data.global.x;
 			
 		}
