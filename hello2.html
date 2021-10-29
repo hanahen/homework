@@ -45,10 +45,18 @@
 		})
 		msg.on("mousemove", moveMsg);
 
-		function change(){
-			flag3 *= -1;
-		}
-		
+		msg.on("touchstart",function(){
+			flag3 = 1;
+		})
+		msg.on("touchend",function(){
+			flag3 = -1;
+		})
+		msg.on("touchmove", moveMsg);
+
+//		function change(){
+//			flag3 *= -1;
+//		}
+//		
 		var div = new PIXI.Sprite.fromImage("res/hello/bgdiv.png");
 		div.scale.x=0.3;
 		div.scale.y=0.3;
