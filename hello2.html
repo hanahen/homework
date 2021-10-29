@@ -112,7 +112,11 @@
 			
 			if(flag){
 				msg.alpha -= 0.04;
+				Btn.alpha -= 0.04;
 				title.alpha -= 0.04;
+				if(title.alpha <= 0){
+					window.location.href = 'choose.html';
+				}
 				//slider.alpha -= 0.04;
 			}
 		}
