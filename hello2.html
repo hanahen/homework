@@ -96,9 +96,11 @@
 		left.scale.y=0.3;
 		left.y=-10;
 		app.stage.addChild(left);
-		
+		msg.lastPos = 0;
 		function moveMsg(event){
-			if(msg.lastPos<1000 && msg.lastPos>400){
+			
+			
+			
 			if(flag3 == 1){
 				msg.x += (event.data.global.x - msg.lastPos);
 			}
@@ -112,7 +114,7 @@
 			msg.lastPos = event.data.global.x;
 			
 		}
-		}
+		
 		
 		
 		//渐显动画
