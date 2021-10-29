@@ -73,6 +73,7 @@
         start.interactive = true;
         start.buttonMode = true;
         start.on("click",jump);
+        start.on("touchstart",jump);
         
         app.ticker.add(animate);
         
