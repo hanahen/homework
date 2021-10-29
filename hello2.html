@@ -91,13 +91,18 @@
 		left.y=-10;
 		app.stage.addChild(left);
 		
-		
 		function moveMsg(event){
-			var pos = event.data.getLocalPosition(app.stage);
+
 			if(flag3 == 1){
-				if(pos.x<=800 && pos.x >= 450)
-				msg.x = pos.x;
+				
+				msg.x += (event.data.global.x - msg.lastPos)
 			}
+			if(msg.x >800){
+				msg.x = 800;
+			}
+			if(msg.x <450)
+			msg.x = 450;
+			msg.lastPos = event.data.global.x;
 			
 		}
 		
