@@ -24,8 +24,8 @@
 		bg.y=-10;
         app.stage.addChild(bg);
         bg.interactive = true;
-		bg.on("mousemove", moveMsg);
-		bg.on("click",change);
+        
+		
 		var flag3 = -1;
 		
 		var msg = new PIXI.Sprite.fromImage("res/hello/msg.png");
@@ -36,6 +36,14 @@
 		msg.y=300;
 		msg.alpha = 0;
 		app.stage.addChild(msg);
+		msg.interactive = true;
+		msg.on("mousedown",function(){
+			flag3 = 1;
+		})
+		msg.on("mouseup",function(){
+			flag3 = -1;
+		})
+		msg.on("mousemove", moveMsg);
 
 		function change(){
 			flag3 *= -1;
