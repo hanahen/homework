@@ -1,8 +1,9 @@
+<!--历史介绍-->
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>hello</title>
+		<title>历史介绍</title>
 		<style type="text/css">
 			body{
 				text-align: center;
@@ -27,76 +28,117 @@
 			}
 			.btn{
 				margin-top: 20px;
+				opacity: 0;
+			}
+			.btn img{
+				cursor: pointer;
 			}
 			.line{
 				margin: 0 auto;
 				width: 800px;
 				display:flex;
       			align-items:center;
-      			flex-direction:row;
+      			
+			}
+
+			#bgleft{
+				margin: 0 auto;
+				width: 1200px;
+				height: 602.2px;
+				text-align: center;
+				background-image: url(res/hello/left.png);
+				background-repeat:no-repeat;
+				background-size:cover;
+				position: absolute;
+				left: 65px;
+				top: 97.8px;
+				z-index: 2;
+			}
+			#title{
+				position: relative;
+				opacity: 0;
+				top: 40px;
+				z-index: 1;
+			}
+			#msg{
+				opacity: 0;
+				
 			}
 			
-			  .content::-webkit-scrollbar {
-				  /*滚动条整体样式*/
-				  width : 1px;  /*高宽分别对应横竖滚动条的尺寸*/
-				  height: 5px;
-				  }
-				  .content::-webkit-scrollbar-thumb {
-				  /*滚动条里面小方块*/
-				  border-radius: 10px;
-				  box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
-				  background   : #95703c;
-				  }
-				  .content::-webkit-scrollbar-track {
-				  /*滚动条里面轨道*/
-				  box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
-				  border-radius: 3px;
-				  background   : #c6b89e;
-			  }
+			.content::-webkit-scrollbar {
+				/*滚动条整体样式*/
+				width : 1px;  /*高宽分别对应横竖滚动条的尺寸*/
+				height: 5px;
+			}
+			.content::-webkit-scrollbar-thumb {
+				/*滚动条里面小方块*/
+				border-radius: 10px;
+				box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+				background   : #95703c;
+
+			}
+			.content::-webkit-scrollbar-track {
+				/*滚动条里面轨道*/
+				box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+				border-radius: 3px;
+				background   : #c6b89e;
+			}
 
 			
 			
 		</style>
 	</head>
 	<body>
+		
 		<div class="top">
 			<br/>
+		<div id = "bgleft"></div>
 		<div class="line">
 			<div  id ="msg" align="center" class="content"><img src="res/hello/msg.png" alt width="950px" height="327px" />	</div>
 			<div  id="title" class="title"><img src="res/hello/title.png" alt width="40px" height="163px" /></div>
 		</div>
 		
-		<div id="btn" class="btn"><img src="res/hello/nextBtn.png" alt width="187.5px" height="60px"/></div>
+		<div id="btn" class="btn"><img src="res/hello/nextBtn.png" alt width="187.5px" height="60px" onclick="jump()"/></div>
 		</div>
-		<script type="text/javascript" src="js/pixi.min.js" >
+		<script type="text/javascript">
+		window.onload = move;
+		var left = 65;
+		var opacity = 0;
 		
-		var title = document.getElementsByClassName(msg);
-		title.alpha = 0;
-		var msg = document.getElementsByClassName(content);
-		msg.alpha = 0;
-		var btn = document.getElementsByClassName(btn);
-		btn.alpha = 0;
+		function move(){
+		  document.getElementById("bgleft").style.left = left+"px";
+    	  left-=5;
+    	  
+    	  //第一组图片移出显示区域，重置左边距
+    	  if(left <= -1000){
+    		  left = -1000;
+    		  opacity += 0.02;
+    		  if(opacity >= 1){
+    		  	opacity=1;
+    		  }
+    		  document.getElementById("title").style.opacity = opacity;
+    		  document.getElementById("msg").style.opacity = opacity;
+    		  document.getElementById("btn").style.opacity = opacity;
+    		  
+    	  }
+    	  
+    	  
+    	  //帧频：每秒60帧，每隔16.66毫秒执行一次
+    	  window.requestAnimationFrame(move);
+		}
+		var opacity2 = 1;
+		function jump(){
+			opacity2 -= 0.04;
+			
+			document.getElementById("title").style.opacity = opacity2;
+    		document.getElementById("msg").style.opacity = opacity2;
+    		document.getElementById("btn").style.opacity = opacity2;
+			if(opacity2 <= 0){
+    		  	window.location.href = 'choose.html';
+    		}
+			window.requestAnimationFrame(jump);
+		}
 		
-			app.ticker.add(animate);
-		  function animate(){
-		   appear_title();
-		   appear_msg();
-		   appear_Btn();
-		  }
-		  var title = document.getElementsByClassName(title).innerHTML;;
-		  function appear_title(){
-		  	title.innerText = word.substring(0,index++);
-		  	document.getElementsByClassName("title").innerText = title.substring(0,index++);
-		   title.display = 0;
-		  }
-		  function appear_msg(){
-		  	var msg = document.getElementsByClassName(content);
-		   msg.alpha += 0.01;
-		  }
-		  function appear_Btn(){
-		  	var btn = document.getElementsByClassName(btn);
-		   Btn.alpha += 0.003;
-		  }
 		</script>
 	</body>
 </html>
