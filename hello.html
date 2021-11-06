@@ -32,6 +32,7 @@
 			}
 			.btn img{
 				cursor: pointer;
+
 			}
 			.line{
 				margin: 0 auto;
@@ -53,6 +54,7 @@
 				left: 65px;
 				top: 97.8px;
 				z-index: 2;
+				
 			}
 			#title{
 				position: relative;
@@ -63,6 +65,9 @@
 			#msg{
 				opacity: 0;
 				
+			}
+			#msg img{
+				margin-top: 30px;
 			}
 			
 			.content::-webkit-scrollbar {
@@ -94,7 +99,7 @@
 			<br/>
 		<div id = "bgleft"></div>
 		<div class="line">
-			<div  id ="msg" align="center" class="content"><img src="res/hello/msg.png" alt width="950px" height="327px" />	</div>
+			<div  id ="msg" align="center" class="content"><img src="res/hello/msg.png" alt width="950px" height="290px" />	</div>
 			<div  id="title" class="title"><img src="res/hello/title.png" alt width="40px" height="163px" /></div>
 		</div>
 		
@@ -110,8 +115,9 @@
     	  left-=5;
     	  
     	  //第一组图片移出显示区域，重置左边距
-    	  if(left <= -1000){
-    		  left = -1000;
+    	  if(left <= -1030){
+    		  left = -1020;
+    		  document.getElementById("bgleft").style.left = left+"px";
     		  opacity += 0.02;
     		  if(opacity >= 1){
     		  	opacity=1;
@@ -138,7 +144,7 @@
     		}
 			window.requestAnimationFrame(jump);
 		}
-		
+			
 		</script>
 	</body>
 </html>
