@@ -23,8 +23,8 @@
         bg.anchor.set(0.5,0.5);
         bg.x = 600;
         bg.y = 300;
-        bg.width = 1400;
-        bg.height = 700
+        bg.width = 1250;
+        bg.height = 650
         app.stage.addChild(bg);
 
 
@@ -32,24 +32,24 @@
 		mid.anchor.set(0.5,0.5);
 		mid.x = 600;
 		mid.y = 300;
-		mid.width = 10;
-        mid.height = 600;
+		mid.scale.x = 0.25;
+        mid.scale.y = 0.25;
         app.stage.addChild(mid);
         
 		var left = new PIXI.Sprite.fromImage("res/left.png");
 		left.anchor.set(0.5,0.5);
 		left.x = 100;
-		left.y = 245;
-		left.width = 1000;
-        left.height = 600;
+		left.y = 300;
+		left.scale.x = 0.25;
+        left.scale.y = 0.25;
         app.stage.addChild(left);
         
         var right = new PIXI.Sprite.fromImage("res/right.png");
 		right.anchor.set(0.5,0.5);
 		right.x = 1100;
-		right.y = 237;
-		right.width = 1000;
-        right.height = 600;
+		right.y = 300;
+		right.scale.x = 0.25;
+        right.scale.y = 0.25;
         app.stage.addChild(right);
         
 
@@ -58,17 +58,17 @@
         title.anchor.set(0.5,0.5);
         title.x = 600;
         title.y = 300;
-        title.width = 1000;
-        title.height = 600;
+        title.scale.x = 0.25;
+        title.scale.y = 0.25;
         title.alpha = 0;
         app.stage.addChild(title);
         
         var start = new PIXI.Sprite.fromImage("res/start.png");
         start.anchor.set(0.5,0.5);
         start.x = 600;
-        start.y = 500;
-        start.width = 250;
-        start.height = 80;
+        start.y = 550;
+        start.scale.x = 0.25;
+        start.scale.y = 0.25;
         app.stage.addChild(start);
         start.interactive = true;
         start.buttonMode = true;
@@ -109,9 +109,9 @@
         	if(mid.width<1000){
         		left.x -= 4;
         		right.x += 4;
-        		mid.width += 20;
+        		mid.width += 17;
         	}
-        	if(mid.width>1000){
+        	if(mid.width>=1000){
         		mid.width = 1000;
         		flag = true;
         	}

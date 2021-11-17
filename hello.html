@@ -14,6 +14,7 @@
 				width: 1200px;
 				height: 600px;
 				text-align: center;
+				position: relative;
 				
 				background-image: url(res/hello/bg.png);
 				background-repeat:no-repeat;
@@ -51,8 +52,8 @@
 				background-repeat:no-repeat;
 				background-size:cover;
 				position: absolute;
-				left: 65px;
-				top: 97.8px;
+				right: 0px;
+				top: -2px;
 				z-index: 2;
 				
 			}
@@ -102,22 +103,22 @@
 			<div  id ="msg" align="center" class="content"><img src="res/hello/msg.png" alt width="950px" height="290px" />	</div>
 			<div  id="title" class="title"><img src="res/hello/title.png" alt width="40px" height="163px" /></div>
 		</div>
-		
-		<div id="btn" class="btn"><img src="res/hello/nextBtn.png" alt width="187.5px" height="60px" onclick="jump()"/></div>
+		<br/>
+		<div id="btn" class="btn"><img src="res/hello/nextBtn.png" alt width="10%" height="10%" onclick="jump()"/></div>
 		</div>
 		<script type="text/javascript">
 		window.onload = move;
-		var left = 65;
+		var right = 0;
 		var opacity = 0;
 		
 		function move(){
-		  document.getElementById("bgleft").style.left = left+"px";
-    	  left-=5;
+		  document.getElementById("bgleft").style.right = right+"px";
+    	  right+=5;
     	  
     	  //第一组图片移出显示区域，重置左边距
-    	  if(left <= -1030){
-    		  left = -1020;
-    		  document.getElementById("bgleft").style.left = left+"px";
+    	  if(right >= 1142){
+    		  right = 1135;
+    		  document.getElementById("bgleft").style.right = right+"px";
     		  opacity += 0.02;
     		  if(opacity >= 1){
     		  	opacity=1;
